@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Album</title>
+</head>
+<body>
+<form action="#" th:action="@{/admin}" th:object="${addalbum}" method="post">
+    <input type="hidden" th:field="*{id}">
+
+    Add Album: <input type="text" th:field="*{addalbum}"><br />
+    <span th:if="${#fields.hasErrors('addalbum')}" th:errors="*{addalbum}"></span><br />
+
+
+
+    <select name="admin" th:field="*{addalbum}">
+        <option th:each="admin : ${addalbum}"
+                th:value="${admin.id}"
+                th:text="${admin.addalbum}"></option>
+    </select>
+    <input type="submit" value="Submit">
+</form>
+
+
+
+
+</body>
+</html>
