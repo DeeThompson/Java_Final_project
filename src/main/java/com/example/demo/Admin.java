@@ -2,6 +2,7 @@ package com.example.demo;
 
 
 import javax.persistence.*;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Admin {
@@ -11,8 +12,8 @@ public class Admin {
         @GeneratedValue(strategy = GenerationType.AUTO)
         private long id;
         private String addalbum;
-        OneToOne(cascade =CascadeType.ALL)
-            @JoinColumn(name ="album_id")
+        @OneToMany (cascade =CascadeType.ALL)
+        @JoinColumn(name ="album_id")
 
     public long getId() {
         return id;

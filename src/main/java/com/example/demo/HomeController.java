@@ -88,27 +88,29 @@ public class HomeController {
 
     // ========new code=============================
 
-    @GetMapping("/admin")
-    public String admin(Model model) {
+    @GetMapping("/adminform")
+    public String adminform(Model model) {
         model.addAttribute("admin", new Admin());
         model.addAttribute("user", userRepository.findAll());
-        return "admin";
+        return "adminform";
 
 
     }
 
 
-    @PostMapping("/admin")
+    @PostMapping("/adminform")
     public String processAdmin(@Valid Admin admin,
                                BindingResult result) {
         if (result.hasErrors()) {
-            return "admin";
+            return "adminform";
         }
         adminRepository.save(admin);
-        return "redirect:/";
+        return "adminform";
     }
 
     @RequestMapping("/deleteperson/{id}")
+
+
     public String delAlbum(@PathVariable("id") long id) {
         albumRepository.deleteById(id);
         return "redirect:/";

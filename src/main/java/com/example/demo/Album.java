@@ -20,6 +20,7 @@ public class Album {
             fetch = FetchType.LAZY)
     private Set<Song> songs;
 
+
     public long getId() {
         return id;
     }

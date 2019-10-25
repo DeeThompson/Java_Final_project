@@ -6,7 +6,7 @@
     <title>Add Album</title>
 </head>
 <body>
-<form action="#" th:action="@{/admin}" th:object="${addalbum}" method="post">
+<form action="#" th:action="@{/adminform}" th:object="${addalbum}" method="post">
     <input type="hidden" th:field="*{id}">
 
     Add Album: <input type="text" th:field="*{addalbum}"><br />
@@ -14,10 +14,10 @@
 
 
 
-    <select name="admin" th:field="*{addalbum}">
-        <option th:each="admin : ${addalbum}"
-                th:value="${admin.id}"
-                th:text="${admin.addalbum}"></option>
+    <select name="album" th:field="*{albums}">
+        <option th:each="albums : ${album}"
+                th:value="${album.id}"
+                th:text="${album.addalbum}"></option>
     </select>
     <input type="submit" value="Submit">
 </form>
